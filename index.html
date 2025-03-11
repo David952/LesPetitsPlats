@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les Petits Plats</title>
-    <link href="./style.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ebaee48e77.js" crossorigin="anonymous"></script>
+    <script type="module" src="scripts/tag.js"></script>
+    <script type="module" src="scripts/card.js"></script>
 </head>
 <body>
-    <header>
-        <img src="assets/logo.png" alt="Logo Les Petits Plats">
-        <h1>Les Petits Plats</h1>
-    </header>
+    <main>
+        <section class="relative h-[1260px] bg-[url(/assets/background.png)] bg-cover flex flex-col justify-center items-center">
+            <header class="absolute top-[51px] left-[69px]"><a href="index.html"><img class="w-[207px] h-[25px]" src="assets/logo.png" alt="Logo Les Petits Plats"></a></header>
+            <h1 class="text-selectedYellow text-[44px]">
+            CHERCHEZ PARMI PLUS DE 1500 RECETTES<br/> 
+            DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
+            <div class="relative">
+                <input class="w-[954px] h-[72px] mt-7 p-6 bg-white rounded-xl outline-none" placeholder="Rechercher une recette, un ingrédient, ...">
+                <button type="button" title="Effacer" class="absolute top-[40px] right-[75px] text-5xl text-gray-400 hidden">&times;</button>
+                <button type="button" title="Rechercher" class="absolute w-[51px] h-[52px] top-[38px] right-[10px] bg-black rounded-xl cursor-pointer hover:bg-selectedYellow"><span class="fa-solid fa-magnifying-glass text-white text-2xl hover:text-black"></span></button>
+            </div>
+        </section>
+        <section class="py-4 px-[102px] bg-selectedGrey">
+            <div id="tags" class="flex">
+                <div>
+                    <button id="ingredients" type="button" title="Ingrédients">
+                        <ul>Ingrédients</ul>
+                        <span><img src="./assets/icon/vector.png" ></span>
+                    </button>
+                    <ul id="ingredients-list"></ul>
+                </div>
+                <div>
+                    <button id="appareils" type="button" title="Appareils">
+                        <ul>Appareils</ul>
+                        <span><img src="./assets/icon/vector.png" ></span>
+                    </button>
+                    <ul id="appareils-list"></ul>
+                </div>
+                <div>
+                    <button id="ustensiles" type="button" title="Ustensiles">
+                        <ul>Ustensiles</ul>
+                        <span><img src="./assets/icon/vector.png" ></span>
+                    </button>
+                    <ul id="ustensiles-list"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
