@@ -1,4 +1,5 @@
 /*! tailwindcss v4.0.12 | MIT License | https://tailwindcss.com */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap');
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -27,6 +28,8 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --color-selectedYellow: #FFD15B;
+    --color-selectedGrey: #EDEDED;
   }
 }
 @layer base {
@@ -177,20 +180,20 @@
   .relative {
     position: relative;
   }
+  .top-\[38px\] {
+    top: 38px;
+  }
+  .top-\[40px\] {
+    top: 40px;
+  }
   .top-\[51px\] {
     top: 51px;
   }
-  .top-\[684px\] {
-    top: 684px;
+  .right-\[10px\] {
+    right: 10px;
   }
-  .top-\[687px\] {
-    top: 687px;
-  }
-  .right-\[800px\] {
-    right: 800px;
-  }
-  .right-\[880px\] {
-    right: 880px;
+  .right-\[75px\] {
+    right: 75px;
   }
   .left-\[69px\] {
     left: 69px;
@@ -234,6 +237,9 @@
   .items-center {
     align-items: center;
   }
+  .justify-between {
+    justify-content: space-between;
+  }
   .justify-center {
     justify-content: center;
   }
@@ -242,6 +248,9 @@
   }
   .bg-black {
     background-color: var(--color-black);
+  }
+  .bg-selectedGrey {
+    background-color: var(--color-selectedGrey);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -254,6 +263,12 @@
   }
   .p-6 {
     padding: calc(var(--spacing) * 6);
+  }
+  .px-\[102px\] {
+    padding-inline: 102px;
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -269,6 +284,9 @@
   .text-gray-400 {
     color: var(--color-gray-400);
   }
+  .text-selectedYellow {
+    color: var(--color-selectedYellow);
+  }
   .text-white {
     color: var(--color-white);
   }
@@ -276,11 +294,39 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  .hover\:bg-selectedYellow {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-selectedYellow);
+      }
+    }
+  }
   .hover\:text-black {
     &:hover {
       @media (hover: hover) {
         color: var(--color-black);
       }
     }
+  }
+}
+@layer base {
+  body {
+    font-family: Manrope;
+  }
+  h1, h2, h3 {
+    font-family: Anton;
+  }
+  #tags button {
+    margin-right: 66px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-white);
+    padding-inline: 16px;
+    padding-block: 17px;
+  }
+  span img {
+    margin-left: 63px;
   }
 }

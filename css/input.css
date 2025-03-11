@@ -1,1 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+    --color-selectedYellow: #FFD15B;
+    --color-selectedGrey: #EDEDED;
+}
+
+@layer base {
+    body {
+        @apply font-[Manrope];
+    }
+
+    h1, h2, h3 {
+        @apply font-[Anton];
+    }
+
+    #tags button {
+        @apply py-[17px] px-[16px] mr-[66px] bg-white rounded-xl flex items-center cursor-pointer;
+    }
+
+    span img {
+        margin-left: 63px;
+    }
+}
