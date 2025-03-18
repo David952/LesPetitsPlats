@@ -25,26 +25,44 @@
         </section>
         <section id="tagsTotalRecipes" class="py-4 bg-selectedGrey flex items-center justify-around max-[774px]:flex-wrap">
             <div id="tags" class="flex max-[774px]:flex-col">
-                <div>
+                <div class="tag">
                     <button id="ingredients" type="button" title="Ingrédients">
                         Ingrédients
                         <span><img src="./assets/icon/vector.png" ></span>
                     </button>
-                    <ul id="ingredients-list"></ul>
+                    <div id="ingredients-container" class="hidden">
+                        <div class="search-bar">
+                            <input id="ingredients-search" type="text" class="w-full h-[36px] border-[1px] outline-none text-[#C6C6C6] mx-[16px]">
+                        <button type="button" class="search-button"><span class="fa-solid fa-magnifying-glass"></span></button>
+                        </div>
+                        <ul id="ingredients-list"></ul>
+                    </div>
                 </div>
-                <div>
-                    <button id="appareils" type="button" title="Appareils">
+                <div class="tag">
+                    <button id="appliance" type="button" title="Appareils">
                         Appareils
                         <span><img src="./assets/icon/vector.png" ></span>
                     </button>
-                    <ul id="appareils-list"></ul>
+                    <div id="appliance-container" class="hidden">
+                        <div class="search-bar">
+                            <input id="appliance-search" type="text" class="w-full h-[36px] border-[1px] outline-none text-[#C6C6C6] mx-[16px]">
+                                <button type="button" class="search-button"><span class="fa-solid fa-magnifying-glass"></span></button>
+                        </div>
+                        <ul id="appliance-list"></ul>
+                    </div>
                 </div>
-                <div>
-                    <button id="ustensiles" type="button" title="Ustensiles">
+                <div class="tag">
+                    <button id="ustensils" type="button" title="Ustensiles">
                         Ustensiles
                         <span><img src="./assets/icon/vector.png" ></span>
                     </button>
-                    <ul id="ustensiles-list"></ul>
+                    <div id="ustensils-container" class="hidden">
+                        <div class="search-bar">
+                            <input id="ustensils-search" type="text" class="w-full h-[36px] border-[1px] outline-none text-[#C6C6C6] mx-[16px]">
+                            <button type="button" class="search-button"><span class="fa-solid fa-magnifying-glass"></span></button>
+                        </div>
+                        <ul id="ustensils-list"></ul>
+                    </div>
                 </div>
             </div>
         </section>
