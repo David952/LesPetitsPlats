@@ -5,9 +5,11 @@
 @theme {
     --color-selectedYellow: #FFD15B;
     --color-selectedGrey: #EDEDED;
+    --color-textGrey: #7A7A7A;
 }
 
 @layer base {
+
     body {
         @apply font-[Manrope];
     }
@@ -17,10 +19,81 @@
     }
 
     #tags button {
-        @apply py-[17px] px-[16px] mr-[66px] bg-white rounded-xl flex items-center cursor-pointer;
+        @apply w-[194px] py-[17px] px-[16px] mr-[66px] bg-white rounded-xl flex justify-between items-center cursor-pointer max-[774px]:mr-[0px] max-[774px]:mb-[15px];
+    }
+
+    #tags ul {
+        @apply absolute top-[36px] z-10 w-[194px] h-[240px] pl-[16px] pt-[25px] bg-white overflow-hidden overflow-y-auto;
+    }
+
+    #tags li {
+        @apply pb-[13px] cursor-pointer;
     }
 
     span img {
-        margin-left: 63px;
+       @apply ml-[63px];
     }
+}
+
+@layer components {
+    .tag {
+       @apply relative;
+    }
+
+    .tag-item {
+        @apply w-[194px] absolute top-[50px];
+    }
+
+    .tag-searchBar {
+        @apply relative pl-[16px] bg-white;
+    }
+
+    .tag-search {
+        @apply w-[163px] h-[36px] border-[1px] outline-none text-[#C6C6C6];
+    }
+
+    .tag-clear {
+        @apply absolute top-[0px] right-[50px] w-[6px] h-[6px] mr-[0px] border-none bg-transparent text-[#7A7A7A] text-[20px] cursor-pointer;
+    }
+
+    .tag-searchButton {
+        @apply absolute top-[0px] right-[30px] w-[32px] h-[34px] mr-[0px] border-none bg-transparent;
+    }
+
+    .fa-magnifying-glass {
+        @apply text-[#7A7A7A];
+    }
+
+    .totalRecipes {
+        @apply text-[21px];
+    }
+
+    .recipes {
+        @apply bg-selectedGrey 
+        min-[1140px]:grid 
+        min-[1140px]:grid-cols-2
+        min-[1140px]:px-[70px]
+        min-[1911px]:grid-cols-3
+        max-[1913px]:gap-[120px]
+        min-[1913px]:gap-[285px]
+        min-[1911px]:px-[260px]
+        min-[1913px]:px-[420px]
+        max-[1440px]:flex
+        max-[1140px]:flex-col
+        justify-center
+        max-[1139px]:items-center
+        flex-wrap;
+    }
+
+    .recipe-card {
+        @apply w-[380px] my-[60px] rounded-[21px] bg-white;
+    }
+}
+
+@utility padding-content {
+    @apply px-[25px];
+}
+
+@utility recetteIngredients-element {
+    @apply mb-[15px] text-[12px];
 }
