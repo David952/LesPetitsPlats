@@ -6,6 +6,7 @@
     <title>Les Petits Plats</title>
     <link href="./css/style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ebaee48e77.js" crossorigin="anonymous"></script>
+    <script type="module" src="scripts/searchBar.js"></script>
     <script type="module" src="scripts/tag.js"></script>
     <script type="module" src="scripts/totalRecipes.js"></script>
     <script type="module" src="scripts/card.js"></script>
@@ -18,9 +19,9 @@
             CHERCHEZ PARMI PLUS DE 1500 RECETTES<br/> 
             DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
             <div class="relative w-full max-w-[954px] flex items-center">
-                <input class="w-full h-[72px] mt-7 p-6 bg-white rounded-xl outline-none" placeholder="Rechercher une recette, un ingrédient, ...">
-                <button type="button" title="Effacer" class="absolute top-[40px] right-[75px] text-5xl text-gray-400 hidden">&times;</button>
-                <button type="button" title="Rechercher" class="absolute w-[51px] h-[52px] top-[38px] right-[10px] bg-black rounded-xl cursor-pointer group hover:bg-selectedYellow"><span class="fa-solid fa-magnifying-glass text-white text-2xl group-hover:text-black"></span></button>
+                <input id="search-bar" class="w-full h-[72px] mt-7 p-6 bg-white rounded-xl outline-none" placeholder="Rechercher une recette, un ingrédient, ...">
+                <button type="button" title="Effacer" id="searchClearButton" class="absolute top-[40px] right-[75px] text-5xl text-gray-400 hidden">&times;</button>
+                <button type="button" title="Rechercher" id="searchButton" class="absolute w-[51px] h-[52px] top-[38px] right-[10px] bg-black rounded-xl cursor-pointer group hover:bg-selectedYellow"><span class="fa-solid fa-magnifying-glass text-white text-2xl group-hover:text-black"></span></button>
             </div>
         </section>
         <section id="tagsTotalRecipes" class="py-4 bg-selectedGrey flex items-center justify-around max-[774px]:flex-wrap">
@@ -28,38 +29,41 @@
                 <div class="tag">
                     <button id="ingredients" type="button" title="Ingrédients">
                         Ingrédients
-                        <span><img src="./assets/icon/vector.png" ></span>
+                        <span><img src="./assets/icon/vector.png" alt="Chevron"></span>
                     </button>
-                    <div id="ingredients-container" class="hidden">
-                        <div class="search-bar">
-                            <input id="ingredients-search" type="text" class="w-full h-[36px] border-[1px] outline-none text-[#C6C6C6] mx-[16px]">
-                        <button type="button" class="search-button"><span class="fa-solid fa-magnifying-glass"></span></button>
+                    <div id="ingredients-container" class="tag-item hidden">
+                        <div class="tag-searchBar">
+                            <input id="ingredients-search" type="text" class="tag-search">
+                            <button type="button" id="ingredients-clear" class="tag-clear hidden">&times;</button>
+                            <button type="button" class="tag-searchButton"><span class="fa-solid fa-magnifying-glass"></span></button>
                         </div>
                         <ul id="ingredients-list"></ul>
                     </div>
                 </div>
                 <div class="tag">
-                    <button id="appliance" type="button" title="Appareils">
+                    <button id="appliances" type="button" title="Appareils">
                         Appareils
-                        <span><img src="./assets/icon/vector.png" ></span>
+                        <span><img src="./assets/icon/vector.png" alt="Chevron"></span>
                     </button>
-                    <div id="appliance-container" class="hidden">
-                        <div class="search-bar">
-                            <input id="appliance-search" type="text" class="w-full h-[36px] border-[1px] outline-none text-[#C6C6C6] mx-[16px]">
-                                <button type="button" class="search-button"><span class="fa-solid fa-magnifying-glass"></span></button>
+                    <div id="appliances-container" class="tag-item hidden">
+                        <div class="tag-searchBar">
+                            <input id="appliances-search" type="text" class="tag-search">
+                            <button type="button" id="appliances-clear" class="tag-clear hidden">&times;</button>
+                            <button type="button" class="tag-searchButton"><span class="fa-solid fa-magnifying-glass"></span></button>
                         </div>
-                        <ul id="appliance-list"></ul>
+                        <ul id="appliances-list"></ul>
                     </div>
                 </div>
                 <div class="tag">
                     <button id="ustensils" type="button" title="Ustensiles">
                         Ustensiles
-                        <span><img src="./assets/icon/vector.png" ></span>
+                        <span><img src="./assets/icon/vector.png" alt="Chevron"></span>
                     </button>
-                    <div id="ustensils-container" class="hidden">
-                        <div class="search-bar">
-                            <input id="ustensils-search" type="text" class="w-full h-[36px] border-[1px] outline-none text-[#C6C6C6] mx-[16px]">
-                            <button type="button" class="search-button"><span class="fa-solid fa-magnifying-glass"></span></button>
+                    <div id="ustensils-container" class="tag-item hidden">
+                        <div class="tag-searchBar">
+                            <input id="ustensils-search" type="text" class="tag-search">
+                            <button type="button" id="ustensils-clear" class="tag-clear hidden">&times;</button>
+                            <button type="button" class="tag-searchButton"><span class="fa-solid fa-magnifying-glass"></span></button>
                         </div>
                         <ul id="ustensils-list"></ul>
                     </div>
