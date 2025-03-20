@@ -5,7 +5,7 @@ recipesSection.className = 'recipes';
 const main = document.querySelector("main");
 main.appendChild(recipesSection);
 
-function recipeCard(recipe) {
+export function recipeCard(recipe) {
     const card = document.createElement('article');
     card.classList.add('recipe-card');
     const ingredientsList = recipe.ingredients.map(ingredient => {
