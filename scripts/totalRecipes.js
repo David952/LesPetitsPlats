@@ -5,10 +5,13 @@ const totalRecipesElement = document.createElement('h2');
 totalRecipesElement.className = 'totalRecipes';
 totalRecipes.appendChild(totalRecipesElement);
 
-let recipesCount = 0;
+export function updateRecipeCount(recipeList) {
+    const recipesCount = recipeList.length;
+    if (recipesCount <= 1) {
+        totalRecipesElement.textContent = `${recipesCount} recette`;
+    } else {
+        totalRecipesElement.textContent = `${recipesCount} recettes`;
+    }
+}
 
-recipes.forEach(recipe => {
-    recipesCount++;
-})
-
-totalRecipesElement.textContent = `${recipesCount} recettes`
+updateRecipeCount(recipes);
