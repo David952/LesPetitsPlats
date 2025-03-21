@@ -8,19 +8,27 @@ const ingredientsList = document.getElementById('ingredients-list');
 const appliancesList = document.getElementById('appliances-list');
 const ustensilsList = document.getElementById('ustensils-list');
 
+let currentRecipes = [...recipes];
 
-const ingredients = recipes
-    .flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient))
-    .filter((item, index, self) => self.indexOf(item) === index); 
+export function tagsContent() {
+    const ingredients = currentRecipes
+        .flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient))
+        .filter((item, index, self) => self.indexOf(item) === index);
 
-const appliances = recipes
-    .map(recipe => recipe.appliance)
-    .filter((item, index, self) => self.indexOf(item) === index); 
+    const appliances = currentRecipes
+        .map(recipe => recipe.appliance)
+        .filter((item, index, self) => self.indexOf(item) === index);
 
-const ustensils = recipes
-    .flatMap(recipe => recipe.ustensils)
-    .filter((item, index, self) => self.indexOf(item) === index); 
+    const ustensils = currentRecipes
+        .flatMap(recipe => recipe.ustensils)
+        .filter((item, index, self) => self.indexOf(item) === index);
 
+    return { ingredients, appliances, ustensils };
+}
+
+export function updateTagsContent(newRecipes) {
+    currentRecipes = newRecipes;
+}
 
 function displayItems(items, listElement) {
     listElement.innerHTML = '';
@@ -32,6 +40,7 @@ function displayItems(items, listElement) {
 
     listElement.parentElement.classList.remove('hidden');
 };
+
 
 function closeItems(listElement){
     listElement.innerHTML = '';
@@ -61,11 +70,14 @@ function searchClearItems(searchInput, clearButton, items, listElement) {
     });
 }
 
-ingredientsButton.addEventListener('click', () => {
+
+ingredientsButton.addEventListener('click', (event) => {
+    event.stopPropagation();
     if (!ingredientsList.parentElement.classList.contains('hidden')) {
         closeItems(ingredientsList);
     } else {
-        displayItems(Array.from(ingredients), ingredientsList);
+        const { ingredients } = tagsContent();
+        displayItems(ingredients, ingredientsList);
         closeItems(appliancesList);
         closeItems(ustensilsList);
 
@@ -75,11 +87,13 @@ ingredientsButton.addEventListener('click', () => {
     }
 });
 
-appliancesButton.addEventListener('click', () => {
+appliancesButton.addEventListener('click', (event) => {
+    event.stopPropagation();
     if (!appliancesList.parentElement.classList.contains('hidden')) {
         closeItems(appliancesList);
     } else {
-        displayItems(Array.from(appliances), appliancesList);
+        const { appliances } = tagsContent();
+        displayItems(appliances, appliancesList);
         closeItems(ingredientsList);
         closeItems(ustensilsList);
 
@@ -89,16 +103,38 @@ appliancesButton.addEventListener('click', () => {
     }
 });
 
-ustensilsButton.addEventListener('click', () => {
+ustensilsButton.addEventListener('click', (event) => {
+    event.stopPropagation();
     if (!ustensilsList.parentElement.classList.contains('hidden')) {
         closeItems(ustensilsList);
     } else {
-        displayItems(Array.from(ustensils), ustensilsList);
+        const { ustensils } = tagsContent();
+        displayItems(ustensils, ustensilsList);
         closeItems(ingredientsList);
         closeItems(appliancesList);
 
         const searchInput = document.getElementById('ustensils-search');
         const clearButton = document.getElementById('ustensils-clear');
         searchClearItems(searchInput, clearButton, ustensils, ustensilsList);
+    }
+});
+
+document.addEventListener('click', (event) => {
+    const isClickInsideIngredients = ingredientsList.parentElement.contains(event.target) ||
+                                    document.getElementById('ingredients-search').contains(event.target) ||
+                                    ingredientsList.contains(event.target);
+
+    const isClickInsideAppliances = appliancesList.parentElement.contains(event.target) ||
+                                   document.getElementById('appliances-search').contains(event.target) ||
+                                   appliancesList.contains(event.target);
+
+    const isClickInsideUstensils = ustensilsList.parentElement.contains(event.target) ||
+                                  document.getElementById('ustensils-search').contains(event.target) ||
+                                  ustensilsList.contains(event.target);
+
+    if (!isClickInsideIngredients && !isClickInsideAppliances && !isClickInsideUstensils) {
+        closeItems(ingredientsList);
+        closeItems(appliancesList);
+        closeItems(ustensilsList);
     }
 });
