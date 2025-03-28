@@ -4,6 +4,7 @@ import { updateRecipeCount } from "./totalRecipes.js";
 import { recipeCard } from "./card.js";
 
 const searchBar = document.getElementById('search-bar');
+const searchClearButton = document.getElementById('searchClearButton');
 const recipesSection = document.querySelector('.recipes');
 
 
