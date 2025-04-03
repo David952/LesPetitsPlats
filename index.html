@@ -1,77 +1,119 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les Petits Plats</title>
-    <link href="./css/style.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ebaee48e77.js" crossorigin="anonymous"></script>
-    <script type="module" src="scripts/searchBar.js"></script>
-    <script type="module" src="scripts/tag.js"></script>
-    <script type="module" src="scripts/totalRecipes.js"></script>
-    <script type="module" src="scripts/activeTag.js"></script>
-    <script type="module" src="scripts/card.js"></script>
-</head>
-<body>
-    <main>
-        <section class="relative h-[1130px] bg-[url(/assets/background.png)] bg-cover flex flex-col justify-center items-center">
-            <header class="absolute top-[51px] left-[69px] max-[774px]:left-[32%] max-[774px]:top-[30px]"><a href="index.html"><img class="w-[207px] h-[25px]" src="assets/logo.png" alt="Logo Les Petits Plats"></a></header>
-            <h1 class="text-selectedYellow text-[44px] max-[774px]:text-[28px]">
-            CHERCHEZ PARMI PLUS DE 1500 RECETTES<br/> 
-            DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
-            <div class="relative w-full max-w-[954px] flex items-center">
-                <input id="search-bar" class="w-full h-[72px] mt-7 p-6 bg-white rounded-xl outline-none" placeholder="Rechercher une recette, un ingrédient, ...">
-                <button type="button" title="Effacer" id="searchClearButton" class="absolute top-[40px] right-[75px] text-5xl text-gray-400 cursor-pointer hidden">&times;</button>
-                <button type="button" title="Rechercher" id="searchButton" class="absolute w-[51px] h-[52px] top-[38px] right-[10px] bg-black rounded-xl cursor-pointer group hover:bg-selectedYellow"><span class="fa-solid fa-magnifying-glass text-white text-2xl group-hover:text-black"></span></button>
-            </div>
-        </section>
-        <section id="tagsTotalRecipes" class="py-4 bg-selectedGrey flex items-center justify-around max-[774px]:flex-wrap">
-            <div id="tags" class="flex max-[774px]:flex-col">
-                <div class="tag">
-                    <button id="ingredients" type="button" title="Ingrédients">
-                        Ingrédients
-                        <span><img src="./assets/icon/vector.png" alt="Chevron"></span>
-                    </button>
-                    <div id="ingredients-container" class="tag-item hidden">
-                        <div class="tag-searchBar">
-                            <input id="ingredients-search" type="text" class="tag-search">
-                            <button type="button" id="ingredients-clear" class="tag-clear hidden">&times;</button>
-                            <button type="button" class="tag-searchButton"><span class="fa-solid fa-magnifying-glass"></span></button>
-                        </div>
-                        <ul id="ingredients-list"></ul>
-                    </div>
-                </div>
-                <div class="tag">
-                    <button id="appliances" type="button" title="Appareils">
-                        Appareils
-                        <span><img src="./assets/icon/vector.png" alt="Chevron"></span>
-                    </button>
-                    <div id="appliances-container" class="tag-item hidden">
-                        <div class="tag-searchBar">
-                            <input id="appliances-search" type="text" class="tag-search">
-                            <button type="button" id="appliances-clear" class="tag-clear hidden">&times;</button>
-                            <button type="button" class="tag-searchButton"><span class="fa-solid fa-magnifying-glass"></span></button>
-                        </div>
-                        <ul id="appliances-list"></ul>
-                    </div>
-                </div>
-                <div class="tag">
-                    <button id="ustensils" type="button" title="Ustensiles">
-                        Ustensiles
-                        <span><img src="./assets/icon/vector.png" alt="Chevron"></span>
-                    </button>
-                    <div id="ustensils-container" class="tag-item hidden">
-                        <div class="tag-searchBar">
-                            <input id="ustensils-search" type="text" class="tag-search">
-                            <button type="button" id="ustensils-clear" class="tag-clear hidden">&times;</button>
-                            <button type="button" class="tag-searchButton"><span class="fa-solid fa-magnifying-glass"></span></button>
-                        </div>
-                        <ul id="ustensils-list"></ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="activeTags" class="bg-selectedGrey">
-        </section>
-    </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Les Petits Plats</title>
+		<link href="./css/style.css" rel="stylesheet" />
+		<script src="https://kit.fontawesome.com/ebaee48e77.js" crossorigin="anonymous"></script>
+		<script type="module" src="scripts/searchBar.js"></script>
+		<script type="module" src="scripts/tag.js"></script>
+		<script type="module" src="scripts/totalRecipes.js"></script>
+		<script type="module" src="scripts/selectedTag.js"></script>
+		<script type="module" src="scripts/card.js"></script>
+	</head>
+	<body>
+		<main>
+			<section
+				class="relative h-[1130px] bg-[url(/assets/background.png)] bg-cover flex flex-col justify-center items-center"
+			>
+				<header
+					class="absolute top-[51px] left-[69px] max-[774px]:left-[32%] max-[774px]:top-[30px]"
+				>
+					<a href="index.html"
+						><img class="w-[207px] h-[25px]" src="assets/logo.png" alt="Logo Les Petits Plats"
+					/></a>
+				</header>
+				<h1 class="text-selectedYellow text-[44px] max-[774px]:text-[28px]">
+					CHERCHEZ PARMI PLUS DE 1500 RECETTES<br />
+					DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+				</h1>
+				<div class="relative w-full max-w-[954px] flex items-center">
+					<input
+						id="search-bar"
+						class="w-full h-[72px] mt-7 p-6 bg-white rounded-xl outline-none"
+						placeholder="Rechercher une recette, un ingrédient, ..."
+					/>
+					<button
+						type="button"
+						title="Effacer"
+						id="searchClearButton"
+						class="absolute top-[40px] right-[75px] text-5xl text-gray-400 cursor-pointer hidden"
+					>
+						&times;
+					</button>
+					<button
+						type="button"
+						title="Rechercher"
+						id="searchButton"
+						class="absolute w-[51px] h-[52px] top-[38px] right-[10px] bg-black rounded-xl cursor-pointer group hover:bg-selectedYellow"
+					>
+						<span
+							class="fa-solid fa-magnifying-glass text-white text-2xl group-hover:text-black"
+						></span>
+					</button>
+				</div>
+			</section>
+			<section
+				id="tagsTotalRecipes"
+				class="py-4 flex items-center justify-around max-[774px]:flex-wrap"
+			>
+				<div id="tags" class="flex max-[774px]:flex-col">
+					<div class="tag">
+						<button id="ingredients" type="button" title="Ingrédients">
+							Ingrédients
+							<span><img src="./assets/icon/vector.png" alt="Chevron" /></span>
+						</button>
+						<div id="ingredients-container" class="tag-item hidden">
+							<div class="tag-searchBar">
+								<input id="ingredients-search" type="text" class="tag-search" />
+								<button type="button" id="ingredients-clear" class="tag-clear hidden">
+									&times;
+								</button>
+								<button type="button" class="tag-searchButton">
+									<span class="fa-solid fa-magnifying-glass"></span>
+								</button>
+							</div>
+							<ul id="ingredients-list"></ul>
+						</div>
+					</div>
+					<div class="tag">
+						<button id="appliances" type="button" title="Appareils">
+							Appareils
+							<span><img src="./assets/icon/vector.png" alt="Chevron" /></span>
+						</button>
+						<div id="appliances-container" class="tag-item hidden">
+							<div class="tag-searchBar">
+								<input id="appliances-search" type="text" class="tag-search" />
+								<button type="button" id="appliances-clear" class="tag-clear hidden">
+									&times;
+								</button>
+								<button type="button" class="tag-searchButton">
+									<span class="fa-solid fa-magnifying-glass"></span>
+								</button>
+							</div>
+							<ul id="appliances-list"></ul>
+						</div>
+					</div>
+					<div class="tag">
+						<button id="ustensils" type="button" title="Ustensiles">
+							Ustensiles
+							<span><img src="./assets/icon/vector.png" alt="Chevron" /></span>
+						</button>
+						<div id="ustensils-container" class="tag-item hidden">
+							<div class="tag-searchBar">
+								<input id="ustensils-search" type="text" class="tag-search" />
+								<button type="button" id="ustensils-clear" class="tag-clear hidden">&times;</button>
+								<button type="button" class="tag-searchButton">
+									<span class="fa-solid fa-magnifying-glass"></span>
+								</button>
+							</div>
+							<ul id="ustensils-list"></ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="selectedTags" class="flex flex-wrap mx-[420px]"></section>
+		</main>
+	</body>
+</html>
