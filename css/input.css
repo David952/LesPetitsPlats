@@ -1,76 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap");
 
 @import "tailwindcss";
 
 @theme {
-    --color-selectedYellow: #FFD15B;
-    --color-selectedGrey: #EDEDED;
-    --color-textGrey: #7A7A7A;
+	--color-selectedYellow: #ffd15b;
+	--color-selectedGrey: #ededed;
+	--color-textGrey: #7a7a7a;
 }
 
 @layer base {
+	body {
+		@apply font-[Manrope] h-[1800px] bg-selectedGrey;
+	}
 
-    body {
-        @apply font-[Manrope];
-    }
+	h1,
+	h2,
+	h3 {
+		@apply font-[Anton];
+	}
 
-    h1, h2, h3 {
-        @apply font-[Anton];
-    }
+	#tags button {
+		@apply w-[194px] py-[17px] px-[16px] mr-[66px] bg-white rounded-xl flex justify-between items-center cursor-pointer max-[774px]:mr-[0px] max-[774px]:mb-[15px];
+	}
 
-    #tags button {
-        @apply w-[194px] py-[17px] px-[16px] mr-[66px] bg-white rounded-xl flex justify-between items-center cursor-pointer max-[774px]:mr-[0px] max-[774px]:mb-[15px];
-    }
+	#tags ul {
+		@apply absolute top-[36px] z-10 w-[194px] h-[240px] pt-[25px] bg-white overflow-hidden overflow-y-auto;
+	}
 
-    #tags ul {
-        @apply absolute top-[36px] z-10 w-[194px] h-[240px] pl-[16px] pt-[25px] bg-white overflow-hidden overflow-y-auto;
-    }
+	#tags li {
+		@apply mb-[13px] pl-[16px] py-[10px] cursor-pointer;
+	}
 
-    #tags li {
-        @apply pb-[13px] cursor-pointer;
-    }
-
-    span img {
-       @apply ml-[63px];
-    }
+	span img {
+		@apply ml-[63px];
+	}
 }
 
 @layer components {
-    .tag {
-       @apply relative;
-    }
+	.tag {
+		@apply relative;
+	}
 
-    .tag-item {
-        @apply w-[194px] absolute top-[50px];
-    }
+	.tag-item {
+		@apply w-[194px] absolute top-[50px];
+	}
 
-    .tag-searchBar {
-        @apply relative pl-[16px] bg-white;
-    }
+	.tag-searchBar {
+		@apply relative pl-[16px] bg-white;
+	}
 
-    .tag-search {
-        @apply w-[163px] h-[36px] border-[1px] outline-none text-[#C6C6C6];
-    }
+	.tag-search {
+		@apply w-[163px] h-[36px] border-[1px] outline-none text-[#C6C6C6];
+	}
 
-    .tag-clear {
-        @apply absolute top-[0px] right-[50px] w-[6px] h-[6px] mr-[0px] border-none bg-transparent text-[#7A7A7A] text-[20px] cursor-pointer;
-    }
+	.tag-clear {
+		@apply absolute top-[0px] right-[50px] w-[6px] h-[6px] mr-[0px] border-none bg-transparent text-[#7A7A7A] text-[20px] cursor-pointer;
+	}
 
-    .tag-searchButton {
-        @apply absolute top-[0px] right-[30px] w-[32px] h-[34px] mr-[0px] border-none bg-transparent;
-    }
+	.tag-searchButton {
+		@apply absolute top-[0px] right-[30px] w-[32px] h-[34px] mr-[0px] border-none bg-transparent;
+	}
 
-    .fa-magnifying-glass {
-        @apply text-[#7A7A7A];
-    }
+	.fa-magnifying-glass {
+		@apply text-[#7A7A7A];
+	}
 
-    .totalRecipes {
-        @apply text-[21px];
-    }
+	.totalRecipes {
+		@apply text-[21px];
+	}
 
-    .recipes {
-        @apply bg-selectedGrey 
-        min-[1140px]:grid 
+	.recipes {
+		@apply min-[1140px]:grid 
         min-[1140px]:grid-cols-2
         min-[1140px]:px-[70px]
         min-[1911px]:grid-cols-3
@@ -83,17 +83,17 @@
         justify-center
         max-[1139px]:items-center
         flex-wrap;
-    }
+	}
 
-    .recipe-card {
-        @apply w-[380px] my-[60px] rounded-[21px] bg-white;
-    }
+	.recipe-card {
+		@apply w-[380px] my-[60px] rounded-[21px] bg-white;
+	}
 }
 
 @utility padding-content {
-    @apply px-[25px];
+	@apply px-[25px];
 }
 
 @utility recetteIngredients-element {
-    @apply mb-[15px] text-[12px];
+	@apply mb-[15px] text-[12px];
 }

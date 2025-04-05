@@ -1,5 +1,5 @@
 /*! tailwindcss v4.0.12 | MIT License | https://tailwindcss.com */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap");
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -7,15 +7,12 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-200: oklch(0.928 0.006 264.531);
     --color-gray-400: oklch(0.707 0.022 261.325);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
@@ -34,9 +31,9 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
-    --color-selectedYellow: #FFD15B;
-    --color-selectedGrey: #EDEDED;
-    --color-textGrey: #7A7A7A;
+    --color-selectedYellow: #ffd15b;
+    --color-selectedGrey: #ededed;
+    --color-textGrey: #7a7a7a;
   }
 }
 @layer base {
@@ -214,17 +211,20 @@
   .mx-\[25px\] {
     margin-inline: 25px;
   }
+  .mx-\[420px\] {
+    margin-inline: 420px;
+  }
+  .my-\[5px\] {
+    margin-block: 5px;
+  }
   .my-\[30px\] {
     margin-block: 30px;
   }
   .mt-7 {
     margin-top: calc(var(--spacing) * 7);
   }
-  .mr-2 {
-    margin-right: calc(var(--spacing) * 2);
-  }
-  .mr-\[8px\] {
-    margin-right: 8px;
+  .mr-\[10px\] {
+    margin-right: 10px;
   }
   .recetteIngredients-element {
     margin-bottom: 15px;
@@ -239,12 +239,6 @@
   .mb-\[32px\] {
     margin-bottom: 32px;
   }
-  .ml-4 {
-    margin-left: calc(var(--spacing) * 4);
-  }
-  .ml-\[100px\] {
-    margin-left: 100px;
-  }
   .flex {
     display: flex;
   }
@@ -253,9 +247,6 @@
   }
   .hidden {
     display: none;
-  }
-  .table {
-    display: table;
   }
   .h-\[25px\] {
     height: 25px;
@@ -296,14 +287,8 @@
   .max-w-\[954px\] {
     max-width: 954px;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -326,9 +311,6 @@
   .justify-center {
     justify-content: center;
   }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
-  }
   .rounded-\[10px\] {
     border-radius: 10px;
   }
@@ -342,30 +324,17 @@
     border-top-left-radius: 21px;
     border-top-right-radius: 21px;
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .bg-black {
     background-color: var(--color-black);
   }
-  .bg-selectedGrey {
-    background-color: var(--color-selectedGrey);
-  }
   .bg-selectedYellow {
     background-color: var(--color-selectedYellow);
-  }
-  .bg-transparent {
-    background-color: transparent;
   }
   .bg-white {
     background-color: var(--color-white);
   }
   .bg-\[url\(\/assets\/background\.png\)\] {
     background-image: url(/assets/background.png);
-  }
-  .bg-none {
-    background-image: none;
   }
   .bg-cover {
     background-size: cover;
@@ -379,29 +348,11 @@
   .padding-content {
     padding-inline: 25px;
   }
-  .px-3 {
-    padding-inline: calc(var(--spacing) * 3);
-  }
-  .px-\[8px\] {
-    padding-inline: 8px;
-  }
-  .px-\[12px\] {
-    padding-inline: 12px;
-  }
   .px-\[14px\] {
     padding-inline: 14px;
   }
   .px-\[15px\] {
     padding-inline: 15px;
-  }
-  .px-\[17px\] {
-    padding-inline: 17px;
-  }
-  .px-\[18px\] {
-    padding-inline: 18px;
-  }
-  .py-1 {
-    padding-block: calc(var(--spacing) * 1);
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
@@ -409,14 +360,8 @@
   .py-\[5px\] {
     padding-block: 5px;
   }
-  .py-\[12px\] {
-    padding-block: 12px;
-  }
   .py-\[17px\] {
     padding-block: 17px;
-  }
-  .pt-\[1px\] {
-    padding-top: 1px;
   }
   .pt-\[2px\] {
     padding-top: 2px;
@@ -424,10 +369,6 @@
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
-  }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
   .text-4xl {
     font-size: var(--text-4xl);
@@ -447,9 +388,6 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
-  .text-black {
-    color: var(--color-black);
-  }
   .text-gray-400 {
     color: var(--color-gray-400);
   }
@@ -461,13 +399,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .outline-none {
     --tw-outline-style: none;
@@ -487,13 +418,6 @@
       }
     }
   }
-  .hover\:text-gray-200 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-gray-200);
-      }
-    }
-  }
   .max-\[774px\]\:top-\[30px\] {
     @media (width < 774px) {
       top: 30px;
@@ -502,16 +426,6 @@
   .max-\[774px\]\:left-\[32\%\] {
     @media (width < 774px) {
       left: 32%;
-    }
-  }
-  .max-\[774px\]\:mt-2 {
-    @media (width < 774px) {
-      margin-top: calc(var(--spacing) * 2);
-    }
-  }
-  .max-\[774px\]\:ml-0 {
-    @media (width < 774px) {
-      margin-left: calc(var(--spacing) * 0);
     }
   }
   .max-\[774px\]\:flex-col {
@@ -532,9 +446,11 @@
 }
 @layer base {
   body {
+    height: 1800px;
+    background-color: var(--color-selectedGrey);
     font-family: Manrope;
   }
-  h1, h2, h3 {
+  h1,	h2,	h3 {
     font-family: Anton;
   }
   #tags button {
@@ -565,11 +481,12 @@
     overflow-y: auto;
     background-color: var(--color-white);
     padding-top: 25px;
-    padding-left: 16px;
   }
   #tags li {
+    margin-bottom: 13px;
     cursor: pointer;
-    padding-bottom: 13px;
+    padding-block: 10px;
+    padding-left: 16px;
   }
   span img {
     margin-left: 63px;
@@ -632,7 +549,6 @@
   .recipes {
     flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--color-selectedGrey);
     @media (width < 1913px) {
       gap: 120px;
     }
@@ -674,16 +590,11 @@
     background-color: var(--color-white);
   }
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
+@property --tw-border-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
