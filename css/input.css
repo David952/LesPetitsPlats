@@ -61,6 +61,14 @@
 		@apply absolute top-[0px] right-[30px] w-[32px] h-[34px] mr-[0px] border-none bg-transparent;
 	}
 
+	.selectedTags {
+		@apply min-[1913px]:mx-[420px] 
+			   min-[1912px]:mx-[258px]
+			   min-[1140px]:mx-[145px]
+			   min-[1024px]:mx-[36px]
+			   min-[425px]:mx-[36px];
+	}
+
 	.fa-magnifying-glass {
 		@apply text-[#7A7A7A];
 	}
@@ -71,22 +79,30 @@
 
 	.recipes {
 		@apply min-[1140px]:grid 
-        min-[1140px]:grid-cols-2
-        min-[1140px]:px-[70px]
-        min-[1911px]:grid-cols-3
-        max-[1913px]:gap-[120px]
-        min-[1913px]:gap-[285px]
-        min-[1911px]:px-[260px]
-        min-[1913px]:px-[420px]
-        max-[1440px]:flex
-        max-[1140px]:flex-col
-        justify-center
-        max-[1139px]:items-center
-        flex-wrap;
+				min-[1140px]:grid-cols-2
+				min-[1140px]:px-[70px]
+				min-[1911px]:grid-cols-3
+				max-[1913px]:gap-[120px]
+				min-[1913px]:gap-[285px]
+				min-[1911px]:px-[260px]
+				min-[1913px]:px-[420px]
+				max-[1440px]:flex
+				max-[1140px]:flex-col
+				justify-center
+				max-[1139px]:items-center
+				flex-wrap;
+	}
+
+	.recipes p {
+		@apply w-[1590px] mt-[50px];
 	}
 
 	.recipe-card {
 		@apply w-[380px] my-[60px] rounded-[21px] bg-white;
+	}
+
+	.recipe-card p {
+		@apply w-[100%];
 	}
 }
 

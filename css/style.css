@@ -211,9 +211,6 @@
   .mx-\[25px\] {
     margin-inline: 25px;
   }
-  .mx-\[420px\] {
-    margin-inline: 420px;
-  }
   .my-\[5px\] {
     margin-block: 5px;
   }
@@ -540,6 +537,23 @@
     border-style: none;
     background-color: transparent;
   }
+  .selectedTags {
+    @media (width >= 425px) {
+      margin-inline: 36px;
+    }
+    @media (width >= 1024px) {
+      margin-inline: 36px;
+    }
+    @media (width >= 1140px) {
+      margin-inline: 145px;
+    }
+    @media (width >= 1912px) {
+      margin-inline: 258px;
+    }
+    @media (width >= 1913px) {
+      margin-inline: 420px;
+    }
+  }
   .fa-magnifying-glass {
     color: #7A7A7A;
   }
@@ -583,11 +597,18 @@
       padding-inline: 420px;
     }
   }
+  .recipes p {
+    margin-top: 50px;
+    width: 1590px;
+  }
   .recipe-card {
     margin-block: 60px;
     width: 380px;
     border-radius: 21px;
     background-color: var(--color-white);
+  }
+  .recipe-card p {
+    width: 100%;
   }
 }
 @property --tw-font-weight {
