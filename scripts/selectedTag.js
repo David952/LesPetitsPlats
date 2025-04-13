@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { updateRecipeCount } from "./totalRecipes.js";
 import { recipeCard } from "./card.js";
-import { updateTagsContent } from "./tag.js";
+import { closeItems, updateTagsContent } from "./tag.js";
 import { filterRecipes } from "./searchBar.js";
 
 const selectedTagSection = document.getElementById("selectedTags");
@@ -54,12 +54,14 @@ function addTagToSection(tagName, category) {
 		const tagElement = createSelectedTag(tagName, category);
 		selectedTagSection.appendChild(tagElement);
 
-		// Appliquer un fond jaune à l'élément sélectionné
+		// Applique le fond jaune à l'élément sélectionné
 		const listItems = document.querySelectorAll(`#${category}-list li`);
 		const selectedItem = Array.from(listItems).find((item) => item.textContent.trim() === tagName);
 		if (selectedItem) {
 			selectedItem.classList.add("bg-selectedYellow");
 		}
+
+		closeItems(document.getElementById(`${category}-list`));
 
 		const removeButton = tagElement.querySelector(".remove-tag");
 		removeButton.addEventListener("click", () => {
