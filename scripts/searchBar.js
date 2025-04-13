@@ -8,12 +8,18 @@ const searchBar = document.getElementById("search-bar");
 const searchClearButton = document.getElementById("searchClearButton");
 const recipesSection = document.querySelector(".recipes");
 
-function displayFilteredRecipes(filteredRecipes) {
+function displayFilteredRecipes(filteredRecipes, query) {
 	recipesSection.innerHTML = "";
-	filteredRecipes.forEach((recipe) => {
-		const card = recipeCard(recipe);
-		recipesSection.appendChild(card);
-	});
+	if (filteredRecipes.length === 0) {
+		recipesSection.innerHTML = `
+			<p>Aucune recette ne contient '${query}' vous pouvez chercher  «tarte aux pommes », « poisson », etc.</p> 
+		`;
+	} else {
+		filteredRecipes.forEach((recipe) => {
+			const card = recipeCard(recipe);
+			recipesSection.appendChild(card);
+		});
+	}
 	updateRecipeCount(filteredRecipes);
 	updateTagsContent(filteredRecipes);
 	tagsContent();
@@ -54,7 +60,7 @@ export function filterRecipes(query) {
 searchBar.addEventListener("input", (event) => {
 	const query = event.target.value.trim();
 	const filteredRecipes = filterRecipes(query);
-	displayFilteredRecipes(filteredRecipes);
+	displayFilteredRecipes(filteredRecipes, query);
 
 	if (query.length > 0) {
 		searchClearButton.classList.remove("hidden");
@@ -67,5 +73,5 @@ searchClearButton.addEventListener("click", () => {
 	searchBar.value = "";
 	searchClearButton.classList.add("hidden");
 	const filteredRecipes = filterRecipes("");
-	displayFilteredRecipes(filteredRecipes);
+	displayFilteredRecipes(filteredRecipes, "");
 });
