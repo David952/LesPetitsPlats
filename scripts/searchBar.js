@@ -8,12 +8,17 @@ const searchBar = document.getElementById("search-bar");
 const searchClearButton = document.getElementById("searchClearButton");
 const recipesSection = document.querySelector(".recipes");
 
+/**
+ * Affiche les recettes filtrées et met à jour les éléments de l'interface en conséquence.
+ * @param {Array} filteredRecipes - Les recettes qui correspondent à la requête de recherche.
+ * @param {string} query - La requête de recherche saisie par l'utilisateur.
+ */
 function displayFilteredRecipes(filteredRecipes, query) {
 	recipesSection.innerHTML = "";
 	if (filteredRecipes.length === 0) {
 		recipesSection.innerHTML = `
-			<p>Aucune recette ne contient '${query}' vous pouvez chercher  «tarte aux pommes », « poisson », etc.</p> 
-		`;
+            <p>Aucune recette ne contient '${query}' vous pouvez chercher «tarte aux pommes», « poisson », etc.</p> 
+        `;
 	} else {
 		filteredRecipes.forEach((recipe) => {
 			const card = recipeCard(recipe);
@@ -25,6 +30,11 @@ function displayFilteredRecipes(filteredRecipes, query) {
 	tagsContent();
 }
 
+/**
+ * Filtre les recettes en fonction de la requête de recherche et des étiquettes sélectionnées.
+ * @param {string} query - La requête de recherche saisie par l'utilisateur.
+ * @returns {Array} - La liste filtrée des recettes.
+ */
 export function filterRecipes(query) {
 	const queryValue = query.toLowerCase();
 	const queryParts = queryValue.split(/\s+/).filter((part) => part.length > 0);
@@ -57,6 +67,7 @@ export function filterRecipes(query) {
 	return filteredRecipes;
 }
 
+// Écouteur d'événement pour l'événement d'entrée sur la barre de recherche
 searchBar.addEventListener("input", (event) => {
 	const query = event.target.value.trim();
 	const filteredRecipes = filterRecipes(query);
@@ -69,6 +80,7 @@ searchBar.addEventListener("input", (event) => {
 	}
 });
 
+// Écouteur d'événement pour l'événement de clic sur le bouton de réinitialisation
 searchClearButton.addEventListener("click", () => {
 	searchBar.value = "";
 	searchClearButton.classList.add("hidden");

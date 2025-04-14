@@ -10,6 +10,10 @@ const ustensilsList = document.getElementById("ustensils-list");
 
 let currentRecipes = [...recipes];
 
+/**
+ * Génère et retourne les listes de contenu pour les tags ingrédients, appareils, et ustensiles.
+ * @returns {Object} Un objet contenant les listes uniques d'ingrédients, d'appareils et d'ustensiles.
+ */
 export function tagsContent() {
 	const ingredients = currentRecipes
 		.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.ingredient))
@@ -26,10 +30,19 @@ export function tagsContent() {
 	return { ingredients, appliances, ustensils };
 }
 
+/**
+ * Met à jour la liste actuelle des recettes utilisées pour générer les contenus des étiquettes.
+ * @param {Array} newRecipes - Les nouvelles recettes à utiliser.
+ */
 export function updateTagsContent(newRecipes) {
 	currentRecipes = newRecipes;
 }
 
+/**
+ * Affiche les éléments dans la liste fournie.
+ * @param {Array} items - Les éléments à afficher.
+ * @param {HTMLElement} listElement - L'élément de liste HTML pour afficher les éléments.
+ */
 function displayItems(items, listElement) {
 	listElement.innerHTML = "";
 	items.forEach((item) => {
@@ -49,17 +62,34 @@ function displayItems(items, listElement) {
 	listElement.parentElement.classList.remove("hidden");
 }
 
+/**
+ * Cache les éléments d'une liste donnée.
+ * @param {HTMLElement} listElement - L'élément de liste à cacher.
+ */
 export function closeItems(listElement) {
 	listElement.innerHTML = "";
 	listElement.parentElement.classList.add("hidden");
 }
 
+/**
+ * Filtre et affiche les éléments d'une liste en fonction de la requête de recherche.
+ * @param {HTMLInputElement} searchInput - L'input de recherche utilisé pour filtrer.
+ * @param {Array} items - Les éléments à filtrer.
+ * @param {HTMLElement} listElement - L'élément de liste où afficher les résultats filtrés.
+ */
 function filterItems(searchInput, items, listElement) {
 	const query = searchInput.value.toLowerCase();
 	const filteredItems = items.filter((item) => item.toLowerCase().includes(query));
 	displayItems(filteredItems, listElement);
 }
 
+/**
+ * Attache des gestionnaires d'événements pour effacer la recherche et filtrer les éléments d'une liste.
+ * @param {HTMLInputElement} searchInput - L'input de recherche.
+ * @param {HTMLElement} clearButton - Le bouton pour effacer la recherche.
+ * @param {Array} items - Les éléments à afficher ou à filtrer.
+ * @param {HTMLElement} listElement - L'élément de liste où afficher les résultats filtrés.
+ */
 function searchClearItems(searchInput, clearButton, items, listElement) {
 	searchInput.addEventListener("input", () => {
 		if (searchInput.value.length > 0) {
@@ -77,6 +107,7 @@ function searchClearItems(searchInput, clearButton, items, listElement) {
 	});
 }
 
+// Gestion des événements de clic pour les boutons d'ingrédients, appareils et ustensiles
 ingredientsButton.addEventListener("click", (event) => {
 	event.stopPropagation();
 	if (!ingredientsList.parentElement.classList.contains("hidden")) {
@@ -125,6 +156,7 @@ ustensilsButton.addEventListener("click", (event) => {
 	}
 });
 
+// Gestion des clics sur le document pour fermer les listes lorsque le clic est en dehors de la zone pertinente
 document.addEventListener("click", (event) => {
 	const isClickInsideIngredients =
 		ingredientsList.parentElement.contains(event.target) ||
