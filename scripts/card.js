@@ -29,7 +29,7 @@ export function recipeCard(recipe) {
 	// Remplit la carte avec les détails de la recette
 	card.innerHTML = `
         <div class="relative">
-            <img src="assets/recettes/${recipe.image}" alt="${recipe.name}" class="w-full h-[253px] object-cover rounded-t-[21px]">
+            <img src="assets/recettes/${recipe.image}" alt="${recipe.name}" loading="lazy" class="w-full h-[253px] object-cover rounded-t-[21px]">
             <span class="absolute top-[21px] right-[22px] bg-selectedYellow px-[15px] py-[5px] rounded-full">${recipe.time}min</span>
         </div>
         <h3 class="mx-[25px] my-[30px]">${recipe.name}</h3>

@@ -48,6 +48,7 @@ function displayItems(items, listElement) {
 	items.forEach((item) => {
 		const itemElement = document.createElement("li");
 		itemElement.textContent = item;
+		itemElement.setAttribute("tabindex", "0");
 
 		// Vérification si l'élément est déjà sélectionné
 		const selectedTags = Array.from(document.querySelectorAll("#selectedTags span"));
@@ -55,6 +56,12 @@ function displayItems(items, listElement) {
 		if (isSelected) {
 			itemElement.classList.add("bg-selectedYellow");
 		}
+
+		itemElement.addEventListener("keydown", (event) => {
+			if (event.key === "Enter") {
+				itemElement.click();
+			}
+		});
 
 		listElement.appendChild(itemElement);
 	});
@@ -107,16 +114,31 @@ function searchClearItems(searchInput, clearButton, items, listElement) {
 	});
 }
 
+function chevronState(button, isOpen) {
+	const chevron = button.querySelector("img");
+	if (chevron) {
+		if (isOpen) {
+			chevron.classList.add("rotate-90");
+		} else {
+			chevron.classList.remove("rotate-90");
+		}
+	}
+}
+
 // Gestion des événements de clic pour les boutons d'ingrédients, appareils et ustensiles
 ingredientsButton.addEventListener("click", (event) => {
 	event.stopPropagation();
-	if (!ingredientsList.parentElement.classList.contains("hidden")) {
+	const isOpen = !ingredientsList.parentElement.classList.contains("hidden");
+	chevronState(ingredientsButton, !isOpen);
+	if (isOpen) {
 		closeItems(ingredientsList);
 	} else {
 		const { ingredients } = tagsContent();
 		displayItems(ingredients, ingredientsList);
 		closeItems(appliancesList);
 		closeItems(ustensilsList);
+		chevronState(appliancesButton, false);
+		chevronState(ustensilsButton, false);
 
 		const searchInput = document.getElementById("ingredients-search");
 		const clearButton = document.getElementById("ingredients-clear");
@@ -126,13 +148,18 @@ ingredientsButton.addEventListener("click", (event) => {
 
 appliancesButton.addEventListener("click", (event) => {
 	event.stopPropagation();
-	if (!appliancesList.parentElement.classList.contains("hidden")) {
+	const isOpen = !appliancesList.parentElement.classList.contains("hidden");
+	chevronState(appliancesButton, !isOpen);
+
+	if (isOpen) {
 		closeItems(appliancesList);
 	} else {
 		const { appliances } = tagsContent();
 		displayItems(appliances, appliancesList);
 		closeItems(ingredientsList);
 		closeItems(ustensilsList);
+		chevronState(ingredientsButton, false);
+		chevronState(ustensilsButton, false);
 
 		const searchInput = document.getElementById("appliances-search");
 		const clearButton = document.getElementById("appliances-clear");
@@ -142,13 +169,18 @@ appliancesButton.addEventListener("click", (event) => {
 
 ustensilsButton.addEventListener("click", (event) => {
 	event.stopPropagation();
-	if (!ustensilsList.parentElement.classList.contains("hidden")) {
+	const isOpen = !ustensilsList.parentElement.classList.contains("hidden");
+	chevronState(ustensilsButton, !isOpen);
+
+	if (isOpen) {
 		closeItems(ustensilsList);
 	} else {
 		const { ustensils } = tagsContent();
 		displayItems(ustensils, ustensilsList);
 		closeItems(ingredientsList);
 		closeItems(appliancesList);
+		chevronState(ingredientsButton, false);
+		chevronState(appliancesButton, false);
 
 		const searchInput = document.getElementById("ustensils-search");
 		const clearButton = document.getElementById("ustensils-clear");
@@ -161,21 +193,24 @@ document.addEventListener("click", (event) => {
 	const isClickInsideIngredients =
 		ingredientsList.parentElement.contains(event.target) ||
 		document.getElementById("ingredients-search").contains(event.target) ||
-		ingredientsList.contains(event.target);
+		(ingredientsList.contains(event.target) && ingredientsList.contains(event.target));
 
 	const isClickInsideAppliances =
 		appliancesList.parentElement.contains(event.target) ||
 		document.getElementById("appliances-search").contains(event.target) ||
-		appliancesList.contains(event.target);
+		(appliancesList.contains(event.target) && appliancesButton.contains(event.target));
 
 	const isClickInsideUstensils =
 		ustensilsList.parentElement.contains(event.target) ||
 		document.getElementById("ustensils-search").contains(event.target) ||
-		ustensilsList.contains(event.target);
+		(ustensilsList.contains(event.target) && ustensilsButton.contains(event.target));
 
 	if (!isClickInsideIngredients && !isClickInsideAppliances && !isClickInsideUstensils) {
 		closeItems(ingredientsList);
 		closeItems(appliancesList);
 		closeItems(ustensilsList);
+		chevronState(ingredientsButton, false);
+		chevronState(appliancesButton, false);
+		chevronState(ustensilsButton, false);
 	}
 });

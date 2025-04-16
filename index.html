@@ -6,16 +6,16 @@
 		<title>Les Petits Plats</title>
 		<link href="./css/style.css" rel="stylesheet" />
 		<script src="https://kit.fontawesome.com/ebaee48e77.js" crossorigin="anonymous"></script>
-		<script type="module" src="scripts/searchBar.js"></script>
-		<script type="module" src="scripts/tag.js"></script>
-		<script type="module" src="scripts/totalRecipes.js"></script>
-		<script type="module" src="scripts/selectedTag.js"></script>
-		<script type="module" src="scripts/card.js"></script>
+		<script type="module" src="scripts/searchBar.js" defer></script>
+		<script type="module" src="scripts/tag.js" defer></script>
+		<script type="module" src="scripts/totalRecipes.js" defer></script>
+		<script type="module" src="scripts/selectedTag.js" defer></script>
+		<script type="module" src="scripts/card.js" defer></script>
 	</head>
 	<body>
 		<main>
 			<section
-				class="relative h-[1130px] bg-[url(/assets/background.png)] bg-cover flex flex-col justify-center items-center"
+				class="relative h-[1130px] bg-[url(../assets/background.png)] bg-cover flex flex-col justify-center items-center"
 			>
 				<header
 					class="absolute top-[51px] left-[69px] max-[774px]:left-[32%] max-[774px]:top-[30px]"
@@ -29,6 +29,7 @@
 					DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
 				</h1>
 				<div class="relative w-full max-w-[954px] flex items-center">
+					<label for="search-bar" class="sr-only">Rechercher une recette, un ingrédient, ...</label>
 					<input
 						id="search-bar"
 						class="w-full h-[72px] mt-7 p-6 bg-white rounded-xl outline-none"
@@ -66,11 +67,12 @@
 						</button>
 						<div id="ingredients-container" class="tag-item hidden">
 							<div class="tag-searchBar">
+								<label for="ingredients-search" class="sr-only">Rechercher un ingrédient</label>
 								<input id="ingredients-search" type="text" class="tag-search" />
 								<button type="button" id="ingredients-clear" class="tag-clear hidden">
 									&times;
 								</button>
-								<button type="button" class="tag-searchButton">
+								<button type="button" title="Rechercher un ingrédient" class="tag-searchButton">
 									<span class="fa-solid fa-magnifying-glass"></span>
 								</button>
 							</div>
@@ -84,11 +86,12 @@
 						</button>
 						<div id="appliances-container" class="tag-item hidden">
 							<div class="tag-searchBar">
+								<label for="appliances-search" class="sr-only">Rechercher un appareil</label>
 								<input id="appliances-search" type="text" class="tag-search" />
 								<button type="button" id="appliances-clear" class="tag-clear hidden">
 									&times;
 								</button>
-								<button type="button" class="tag-searchButton">
+								<button type="button" title="Rechercher un appareil" class="tag-searchButton">
 									<span class="fa-solid fa-magnifying-glass"></span>
 								</button>
 							</div>
@@ -102,9 +105,10 @@
 						</button>
 						<div id="ustensils-container" class="tag-item hidden">
 							<div class="tag-searchBar">
+								<label for="ustensils-search" class="sr-only">Rechercher un ustensile</label>
 								<input id="ustensils-search" type="text" class="tag-search" />
 								<button type="button" id="ustensils-clear" class="tag-clear hidden">&times;</button>
-								<button type="button" class="tag-searchButton">
+								<button type="button" title="Rechercher un ustensile" class="tag-searchButton">
 									<span class="fa-solid fa-magnifying-glass"></span>
 								</button>
 							</div>

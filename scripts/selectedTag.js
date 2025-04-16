@@ -17,9 +17,9 @@ function createSelectedTag(tagName, category) {
 	const selectedTag = document.createElement("span");
 	selectedTag.className = `w-[195px] h-[56px] flex justify-between items-center bg-selectedYellow rounded-[10px] py-[17px] px-[14px] mr-[10px] my-[5px]`;
 	selectedTag.innerHTML = `
-    ${tagName}
-    <button type="button" title="Retirer ${tagName}" class="remove-tag text-4xl pt-[2px] cursor-pointer" data-category="${category}">&times;</button>
-  `;
+		${tagName}
+		<button type="button" title="Retirer ${tagName}" class="remove-tag text-4xl pt-[2px] cursor-pointer" data-category="${category}">&times;</button>
+	`;
 	return selectedTag;
 }
 
@@ -76,13 +76,14 @@ function addTagToSection(tagName, category) {
 		selectedTagSection.appendChild(tagElement);
 
 		// Applique le fond jaune à l'élément sélectionné
-		const listItems = document.querySelectorAll(`#${category}-list li`);
+		const listItems = document.querySelectorAll(`${category}-list li`);
 		const selectedItem = Array.from(listItems).find((item) => item.textContent.trim() === tagName);
 		if (selectedItem) {
 			selectedItem.classList.add("bg-selectedYellow");
 		}
 
-		closeItems(document.getElementById(`${category}-list`));
+		const listElement = document.getElementById(`${category}-list`);
+		closeItems(listElement);
 
 		const removeButton = tagElement.querySelector(".remove-tag");
 		removeButton.addEventListener("click", () => {
@@ -111,9 +112,6 @@ function updateRecipesBasedOnTags() {
 
 	if (tags.length > 0 || query.length > 0) {
 		filteredRecipes = filterRecipes(query);
-		if (tags.length > 0) {
-			filteredRecipes = filterRecipesByTags(filteredRecipes, tags);
-		}
 	}
 
 	displayFilteredRecipes(filteredRecipes);

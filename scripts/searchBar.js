@@ -1,5 +1,5 @@
 import { recipes } from "../data/recipes.js";
-import { tagsContent, updateTagsContent } from "./tag.js";
+import { updateTagsContent } from "./tag.js";
 import { filterRecipesByTags, getSelectedTags } from "./selectedTag.js";
 import { updateRecipeCount } from "./totalRecipes.js";
 import { recipeCard } from "./card.js";
@@ -27,7 +27,6 @@ function displayFilteredRecipes(filteredRecipes, query) {
 	}
 	updateRecipeCount(filteredRecipes);
 	updateTagsContent(filteredRecipes);
-	tagsContent();
 }
 
 /**
@@ -69,7 +68,7 @@ export function filterRecipes(query) {
 
 // Écouteur d'événement pour l'événement d'entrée sur la barre de recherche
 searchBar.addEventListener("input", (event) => {
-	const query = event.target.value.trim();
+	const query = event.target.value;
 	const filteredRecipes = filterRecipes(query);
 	displayFilteredRecipes(filteredRecipes, query);
 
