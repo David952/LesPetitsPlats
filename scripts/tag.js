@@ -193,7 +193,7 @@ document.addEventListener("click", (event) => {
 	const isClickInsideIngredients =
 		ingredientsList.parentElement.contains(event.target) ||
 		document.getElementById("ingredients-search").contains(event.target) ||
-		(ingredientsList.contains(event.target) && ingredientsList.contains(event.target));
+		(ingredientsList.contains(event.target) && ingredientsButton.contains(event.target));
 
 	const isClickInsideAppliances =
 		appliancesList.parentElement.contains(event.target) ||
